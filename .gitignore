@@ -1,0 +1,15 @@
+# Auto-created files
+.DS_Store
+
+#extensions to ignore
+*.swp
+*.log
+*.pot
+*.pyc
+db.sqlite3
+
+#directories to ignore
+.idea/
+self_receipe/self_receipe/__pycache__/
+self_receipe/polls/migrations/
+self_receipe/polls/__pycache__/

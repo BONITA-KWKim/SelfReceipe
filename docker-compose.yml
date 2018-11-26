@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  djangoapp:
+    build: .
+    volumes:
+      - .:/opt/services/djangoapp/src
+      - ./djangoapp-entrypoint.sh:/opt/services/djangoapp/src/djangoapp-entrypoint.sh
+      - static_volume:/opt/services/djangoapp/static
+      - media_volume:/opt/services/djangoapp/media
+    networks:
+      - nginx_network
+      - database1_network
+    depends_on:
+      - database1
+    tty: true
+    restart: always
+    #command: python /opt/services/djangoapp/src/self_receipe/manage.py migrate --noinput
+    command:
+      - /opt/services/djangoapp/src/djangoapp-entrypoint.sh
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/opt/services/djangoapp/static
+      - media_volume:/opt/services/djangoapp/media
+    depends_on:
+      - djangoapp
+    networks:
+      - nginx_network
+
+  database1:
+    image: postgres:10.1-alpine
+    env_file:
+      - config/db/database1_env
+    networks:
+      - database1_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  nginx_network:
+    driver: bridge
+  database1_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
