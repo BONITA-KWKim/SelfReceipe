@@ -84,6 +84,11 @@ DATABASES = {
         'PASSWORD': 'qwer1234',
         'HOST': 'database1',  # <-- IMPORTANT: same name as docker-compose service!
         'PORT': 5432,
+        #'NAME': 'database2',
+        #'USER': 'database2_role',
+        #'PASSWORD': 'qwer1234',
+        #'HOST': 'database2',  # <-- IMPORTANT: same name as docker-compose service!
+        #'PORT': 5433,
     }
 }
 

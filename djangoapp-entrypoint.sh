@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-PROEJCT_NAME=self_receipe
+PROJECT_NAME=self_receipe
 DJANGO_ROOT=/opt/services/djangoapp
 DJANGO_SRC=$DJANGO_ROOT/src
 DJANGO_PRO=$DJANGO_SRC/$PROJECT_NAME
@@ -59,4 +59,6 @@ echo "========== $WEB_APPLICATION_01 test end"
 
 
 # start gunicorn and django
-gunicorn --chdir /opt/services/djangoapp/src/self_receipe --bind :8000 self_receipe.wsgi:application
+ 
+#gunicorn --chdir /opt/services/djangoapp/src/self_receipe --bind :8000 self_receipe.wsgi:application
+gunicorn --chdir /opt/services/djangoapp/src/self_receipe --workers=2 --bind :8000 self_receipe.wsgi:application
