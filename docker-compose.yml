@@ -24,6 +24,7 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: selfreceipe_nginx
     ports:
       - 8000:80
     volumes:
@@ -37,6 +38,7 @@ services:
 
   database1:
     image: postgres:10.1-alpine
+    container_name: selfreceipe_pg_database_1
 #    ports:
 #      - 8001:5432 
     env_file:
@@ -48,6 +50,7 @@ services:
 
   database2:
     image: postgres:10.1-alpine
+    container_name: selfreceipe_pg_database_2
 #    ports:
 #      - 8002:5433 
     env_file:
