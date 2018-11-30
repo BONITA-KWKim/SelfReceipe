@@ -8,6 +8,9 @@
 *.pyc
 db.sqlite3
 
+*.tar
+*.keka*
+
 #directories to ignore
 .idea/
 self_receipe/self_receipe/__pycache__/
