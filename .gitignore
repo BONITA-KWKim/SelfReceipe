@@ -11,7 +11,8 @@ db.sqlite3
 *.tar
 *.keka*
 
-*.sql #database backup file
+#database backup file
+*.sql 
 
 #directories to ignore
 .idea/
