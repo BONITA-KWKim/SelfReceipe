@@ -11,6 +11,8 @@ db.sqlite3
 *.tar
 *.keka*
 
+*.sql #database backup file
+
 #directories to ignore
 .idea/
 self_receipe/self_receipe/__pycache__/

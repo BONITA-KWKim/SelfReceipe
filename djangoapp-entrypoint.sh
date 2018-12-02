@@ -8,6 +8,7 @@ DJANGO_PRO=$DJANGO_SRC/$PROJECT_NAME
 DJANGO_MANAGE=$DJANGO_PRO/manage.py
 
 WEB_APPLICATION_01=polls
+WEB_APPLICATION_02=fridge_stuff
 
 # Collect static files
 echo "Collect static files"
@@ -17,6 +18,7 @@ python $DJANGO_MANAGE collectstatic --noinput
 echo "Apply database migrations"
 # Add application's migration
 python $DJANGO_MANAGE makemigrations $WEB_APPLICATION_01
+python $DJANGO_MANAGE makemigrations $WEB_APPLICATION_02
 python $DJANGO_MANAGE migrate
 
 # create super user
