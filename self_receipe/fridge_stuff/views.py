@@ -1,13 +1,12 @@
 from django.http import HttpResponse
-
+from rest_framework.response import Response
 
 def index(request):
     return HttpResponse("fridge_stuff")
 
 
 def skill_test(request):
-
-    return {"version": "2.0",
+    return Response({"version": "2.0",
             "template": {
                 "outputs": [
                     {
@@ -17,4 +16,4 @@ def skill_test(request):
                     }
                 ]
             }
-            }
+            })
