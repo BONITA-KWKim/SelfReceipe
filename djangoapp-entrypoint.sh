@@ -63,4 +63,5 @@ echo "========== $WEB_APPLICATION_01 test end"
 # start gunicorn and django
  
 #gunicorn --chdir /opt/services/djangoapp/src/self_receipe --bind :8000 self_receipe.wsgi:application
-gunicorn --chdir /opt/services/djangoapp/src/self_receipe --workers=2 --bind :8000 self_receipe.wsgi:application
+#gunicorn --chdir /opt/services/djangoapp/src/self_receipe --workers=2 --bind :8000 self_receipe.wsgi:application
+gunicorn --chdir /opt/services/djangoapp/src/self_receipe --workers=2 --bind 0.0.0.0:8000 self_receipe.wsgi:application
