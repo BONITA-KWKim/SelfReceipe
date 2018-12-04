@@ -16,4 +16,4 @@ def skill_test(request):
                     }
                 ]
             }
-            })
+            }, content_type='application/json; charset=utf-8')
